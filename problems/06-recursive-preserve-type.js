@@ -27,7 +27,13 @@ However, for bonus points try to solve it both with recursion and iteration.
 */
 
 function recursivePreserveType(array) {
-    // Your code here
+  return (type, newArr = []) => {
+    if (array.length === 0) return newArr;
+    else {
+    if (type === typeof array[0]) newArr.push(array[0])
+    return recursivePreserveType(array.slice(1))(type, newArr);
+    }
+  }
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/

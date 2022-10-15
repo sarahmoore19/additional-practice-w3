@@ -9,9 +9,23 @@
     console.log(sort([14, 5, 10, 6, 3, 4, 21, 16, 9])); // prints [ 3, 4, 5, 6, 9, 10, 14, 16, 21 ]
 */
 
-function sort(nums) {
-    // Your code here
+function sort(nums, newArr = []) {
+  if (nums.length === 0) return newArr;
+  else {
+    let value = Infinity;
+    let index;
+    nums.forEach((num, i) => {
+    if (num < value) {
+      value = num;
+      index = i;
+    }
+  })
+  newArr.push(nums[index]);
+  nums.splice(index, 1);
+  return sort(nums, newArr);
 }
+}
+
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
